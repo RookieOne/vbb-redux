@@ -4,6 +4,10 @@ module.exports = {
     path: __dirname,
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: ['', '.jsx', '.js', '.json', '.scss'],
+    modulesDirectories: ['node_modules', __dirname + '/src', __dirname + '/test'],
+  },
   module: {
     loaders: [
       { test: /\.css$/, loader: "style!css" },
@@ -16,5 +20,8 @@ module.exports = {
         loader: 'json'
       }
     ]
-  }
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
 };

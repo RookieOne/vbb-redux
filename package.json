@@ -27,7 +27,14 @@
     "mocha": "^2.4.5",
     "react": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.0.1",
+    "react-router-redux": "^4.0.2",
+    "redux": "^3.3.1",
+    "redux-form": "^5.1.1",
+    "redux-thunk": "^2.0.1",
+    "redux-logger": "^2.6.1"
   },
   "devDependencies": {
     "wallaby-webpack": "0.0.22",
