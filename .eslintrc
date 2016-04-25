@@ -1,0 +1,22 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "connect": true
+  },
+  "rules": {
+    "strict": 0,
+    "max-len": 0,
+    "block-scoped-var": 0,
+    "padded-blocks": 0,
+    "no-console": 0,
+    "id-length": 0,
+    "no-unused-expressions": 0,
+    "semi": 0,
+    "func-names": 0
+  }
+}
