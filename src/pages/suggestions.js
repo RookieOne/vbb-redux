@@ -24,10 +24,39 @@ export default class Suggestions extends React.Component {
     this.props.getSuggestions();
   }
 
+  renderGeneralSuggestion = (suggestion) => {
+    if (suggestion.generalSuggestion) {
+      return (
+        <span>
+          <div className="header">You guys should do:</div>
+          <div className="description">{suggestion.generalSuggestion}</div>
+        </span>
+      );
+    }
+    return '';
+  }
+
+  renderTalkSuggestion = (suggestion) => {
+    if (suggestion.talkSuggestion) {
+      return (
+        <span>
+          <div className="header">You guys should have a talk about:</div>
+          <div className="description">{suggestion.talkSuggestion}</div>
+        </span>
+      );
+    }
+    return '';
+  }
+
   renderSuggestions = () => {
     const { suggestions } = this.props;
     return suggestions.map((suggestion) => {
-      return (<li key={suggestion.id}>{suggestion.generalSuggestion} - {suggestion.talkSuggestion} </li>);
+      return (<li className="item" key={suggestion.id}>
+        <div className="content">
+          {this.renderGeneralSuggestion(suggestion)}
+          {this.renderTalkSuggestion(suggestion)}
+        </div>
+      </li>);
     });
   }
 
@@ -35,10 +64,10 @@ export default class Suggestions extends React.Component {
     return (
       <section>
         <DocumentMeta {...metaData} />
-        <Link to="/suggestions/new" activeClassName="active">
+        <Link to="/suggestions/new" activeClassName="active" className="ui button">
           Have a Suggestion?
         </Link>
-        <ul>
+        <ul className="ui list">
           {this.renderSuggestions()}
         </ul>
       </section>

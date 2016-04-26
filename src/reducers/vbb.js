@@ -1,4 +1,6 @@
-const initialState = {};
+const initialState = {
+  suggestions: [],
+};
 
 export function vbb(state = initialState, action) {
   switch (action.type) {

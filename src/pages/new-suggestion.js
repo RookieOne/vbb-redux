@@ -30,7 +30,7 @@ export default class NewSuggestion extends React.Component {
   render() {
     const { isSavingNewSuggestion, newSuggestionFailureMessage } = this.props;
     return (
-      <section>
+      <section id="new-suggestion">
         <DocumentMeta {...metaData} />
         <SuggestionForm onSubmit={this.addSuggestion} isSubmitting={isSavingNewSuggestion} failureMessage={newSuggestionFailureMessage} />
       </section>

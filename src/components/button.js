@@ -46,7 +46,7 @@ export default class Button extends React.Component {
 
   render() {
     const { disabled } = this.props;
-    const css = `${this.size()} ${this.color()} vbb-btn`;
+    const css = `ui button ${this.size()} ${this.color()} vbb-btn`;
     return (
       <button disabled={disabled} className={css}>
         { this.buttonContent() }

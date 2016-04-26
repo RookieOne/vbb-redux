@@ -39,12 +39,12 @@ export default class TextInput extends React.Component {
   render() {
     const { label, placeholder, value, onChange, type } = this.props;
     const parse = event => event.target.value;
-    const css = `text-input ${this.successCss()} ${this.errorCss()}`;
+    const css = `text-input field ${this.successCss()} ${this.errorCss()}`;
     const inputType = type || 'text';
     return (
       <div className={css}>
         <label>{label}</label>
-        <input ref="input" type={inputType} placeholder={placeholder} value={value} onChange={event => onChange(parse(event))} />
+        <input ref="input" className="ui input" type={inputType} placeholder={placeholder} value={value} onChange={event => onChange(parse(event))} />
         {this.errorMessage()}
       </div>
     );

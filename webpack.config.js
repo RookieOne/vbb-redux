@@ -1,8 +1,8 @@
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
     path: __dirname,
-    filename: "bundle.js"
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.scss'],
@@ -10,7 +10,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.scss$/, loaders: ["style", "css" , "sass"] },
+      { test: /\.css$/, loaders: ['style', 'css'] },
+      { test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
@@ -18,8 +19,14 @@ module.exports = {
       }, {
         test: /\.json$/,
         loader: 'json'
-      }
-    ]
+      }, {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file?name=public/fonts/[name].[ext]',
+      }, {
+        test: /\.(jpg|png)$/,
+        loader: 'file?name=public/images/[name].[hash].[ext]',
+      },
+    ],
   },
   devServer: {
     historyApiFallback: true,

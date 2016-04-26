@@ -11,7 +11,7 @@ export default class Form extends React.Component {
   render() {
     const { children, errorMessage, onSubmit } = this.props;
     return (
-      <form className="vbb-form" onSubmit={onSubmit}>
+      <form className="vbb-form ui form" onSubmit={onSubmit}>
         <span className="form-error">{errorMessage}</span>
         {children}
       </form>
