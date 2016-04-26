@@ -1,5 +1,6 @@
 {
   "parser": "babel-eslint",
+  "extends": "eslint-config-airbnb",
   "env": {
     "browser": true,
     "node": true,
@@ -9,14 +10,21 @@
     "connect": true
   },
   "rules": {
-    "strict": 0,
     "max-len": 0,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
     "block-scoped-var": 0,
     "padded-blocks": 0,
     "no-console": 0,
     "id-length": 0,
     "no-unused-expressions": 0,
-    "semi": 0,
-    "func-names": 0
-  }
+    "semi": 1,
+    "func-names": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-boolean-value": 0
+  },
+  "plugins": [
+    "react"
+  ]
 }

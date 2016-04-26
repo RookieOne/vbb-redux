@@ -1,6 +1,5 @@
 import React from 'react';
 import DocumentMeta from 'react-document-meta';
-import SuggestionForm from 'forms/suggestion-form';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
@@ -11,23 +10,28 @@ const metaData = {
 };
 
 @connect(
-  state => state.vbb
+  state => state.vbb,
+  dispatch => bindActionCreators(vbbActionsCreator, dispatch)
 )
 
-export default class NewSuggestion extends React.Component {
+export default class Suggestions extends React.Component {
   static propTypes = {
     suggestions: React.PropTypes.array,
+    getSuggestions: React.PropTypes.func,
   }
-  
+
+  componentDidMount() {
+    this.props.getSuggestions();
+  }
+
   renderSuggestions = () => {
-    const { suggestions } = this.props
+    const { suggestions } = this.props;
     return suggestions.map((suggestion) => {
-      return (<li key={suggestion.id}>{suggestion.generalSuggestion} - {suggestion.talkSuggestion} </li>)
-    })
+      return (<li key={suggestion.id}>{suggestion.generalSuggestion} - {suggestion.talkSuggestion} </li>);
+    });
   }
 
   render() {
-    const { suggestions } = this.props;
     return (
       <section>
         <DocumentMeta {...metaData} />

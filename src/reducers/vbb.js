@@ -1,22 +1,16 @@
-import uuid from 'node-uuid'
-
-let initialState = {
-  suggestions: [{
-    id: uuid.v4(),
-    generalSuggestion: 'Be awesome'
-  }],
-};
+const initialState = {};
 
 export function vbb(state = initialState, action) {
   switch (action.type) {
+    case 'GOT_SUGGESTIONS':
+      return {
+        ...state,
+        suggestions: action.suggestions,
+      }
     case 'ADD_SUGGESTION':
       return {
         ...state,
-        suggestions: state.suggestions.concat([{
-          id: uuid.v4(),
-          generalSuggestion: action.generalSuggestion,
-          talkSuggestion: action.talkSuggestion
-        }]),
+        suggestions: state.suggestions.concat([action.suggestion]),
       };
 
     default:
