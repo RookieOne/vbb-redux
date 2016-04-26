@@ -16,7 +16,6 @@ export function addSuggestion(generalSuggestion, talkSuggestion) {
 export function getSuggestions() {
   return (dispatch) => {
     Api.getSuggestions().then((suggestions) => {
-      console.log('got suggetions', suggestions);
       dispatch({
         type: 'GOT_SUGGESTIONS',
         suggestions,
