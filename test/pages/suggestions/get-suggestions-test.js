@@ -8,7 +8,7 @@ describe('<Suggestions />', function () {
   beforeEach(() => {
     this.mockApi(API, 'getSuggestions', [{
       id: 10,
-      generalSuggestion: 'keep sharing',
+      generalSuggestion: 'JavaScriptz is hard',
     }]);
     this.render(<Suggestions />);
 
@@ -22,6 +22,11 @@ describe('<Suggestions />', function () {
     assert.equal(state.vbb.suggestions.length, 1);
 
     const suggestion = state.vbb.suggestions[0];
-    assert.equal(suggestion.generalSuggestion, 'keep sharing');
+    assert.equal(suggestion.generalSuggestion, 'JavaScriptz is hard');
+  });
+  it('should render suggestions in HTML', () => {
+    const $ = this.renderHTML();
+    const description = $('li .content .description').html();
+    assert.equal(description, 'JavaScriptz is hard');
   });
 }.bind(support.setup()));

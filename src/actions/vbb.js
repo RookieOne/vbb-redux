@@ -23,3 +23,6 @@ export function getSuggestions() {
     });
   };
 }
+
+export const getVideos = () => dispatch =>
+  Api.getVideos().then((videos) => dispatch({ type: 'GOT_VIDEOS', videos }));

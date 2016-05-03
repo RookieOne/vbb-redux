@@ -1,5 +1,6 @@
 const initialState = {
   suggestions: [],
+  videos: [],
 };
 
 export function vbb(state = initialState, action) {
@@ -13,6 +14,11 @@ export function vbb(state = initialState, action) {
       return {
         ...state,
         suggestions: state.suggestions.concat([action.suggestion]),
+      };
+    case 'GOT_VIDEOS':
+      return {
+        ...state,
+        videos: action.videos,
       };
 
     default:

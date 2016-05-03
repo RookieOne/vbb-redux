@@ -4,6 +4,8 @@ import configureStore from 'configure-store';
 import { Provider } from 'react-redux';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
+import { renderToStaticMarkup } from 'react-dom/server';
+import cheerio from 'cheerio';
 
 export function setup() {
   Promise = mockPromises.getMockPromise(Promise); // no-native-reassign
@@ -52,12 +54,15 @@ export function setup() {
     getState() {
       return this.store.getState();
     },
+    renderHTML() {
+      return cheerio.load(renderToStaticMarkup(this.wrappedComponent));
+    },
     render(Component) {
       this.store = configureStore({});
       const wrappedComponent = (<Provider store={this.store}>
         {Component}
       </Provider>);
-
+      this.wrappedComponent = wrappedComponent;
       this.renderedComponent = TestUtils.renderIntoDocument(wrappedComponent);
     },
     findComponent(Component) {
